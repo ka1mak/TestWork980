@@ -26,22 +26,11 @@ SPA‑приложение для просмотра текущей погоды
 | **Edge Runtime Ready** | Нет стороннего Axios → код может выполняться в Edge‑окружении без дополнительных полифиллов. |
 
 ## 🛠️ Технологии и библиотеки
-* **React 18 / Next 13 (App Router)**
+* **React 19 / Next 15 (App Router)**
 * **TypeScript 5**
 * **Zustand 5** (минимальный store + middleware `persist` для избранного)
 * **Bootstrap 5 / SCSS Modules**
 * **OpenWeatherMap API**
-
-## 📂 Структура (Feature‑Sliced)
-src/
- ├─ app/                 # страницы (сервер/клиент)
- ├─ features/            # избранное, поиск, переключение темы
- ├─ entities/            # weather (model/ui)
- ├─ shared/
- │   ├─ api/             # fetcher, weatherService
- │   ├─ hooks/           # useGeolocation
- │   └─ types/           # OpenWeather DTO
- └─ store/               # zustand‑stores
 
 ## 🌐 Центральный fetcher
 ```ts
@@ -78,7 +67,7 @@ const { coordinates, error, getLocation } = useGeolocation()
 $ git clone https://github.com/your‑nick/weather‑next13.git && cd weather‑next13
 
 # 2. Устанавливаем зависимости
-$ pnpm i # или npm i / yarn
+$ yarn i
 
 # 3. Создаём .env.local
 NEXT_PUBLIC_API_KEY=XXXXXXXXXXXX
@@ -86,7 +75,7 @@ NEXT_PUBLIC_WEATHER_API=https://api.openweathermap.org/data/2.5
 NEXT_PUBLIC_GEO_API=http://api.openweathermap.org/geo/1.0
 
 # 4. Запуск dev‑сервера
-$ pnpm dev
+$ yarn dev
 ```
 
 ## 🗺️ Скрипты
