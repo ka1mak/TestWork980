@@ -1,0 +1,58 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--foreground);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .search {
+    flex: 1;
+    max-width: 400px;
+
+    @media screen and (max-width: 550px) {
+      display: none;
+    }
+
+    .formIcon {
+      background-color: transparent;
+      color: var(--foreground);
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    .formControl {
+      background-color: transparent;
+      color: var(--foreground);
+
+      &::placeholder {
+        color: var(--foreground);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    .input-group-text {
+      position: absolute;
+      left: 10px;
+      background: none;
+      border: none;
+    }
+
+    .input-group {
+      position: relative;
+    }
+  }
+}

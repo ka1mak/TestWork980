@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
+import { FaRegMoon, FaRegSun } from 'react-icons/fa'
+
 import { applyTheme, Theme } from '@/lib/theme'
 
 export const ThemeSwitcher = () => {
@@ -23,11 +25,9 @@ export const ThemeSwitcher = () => {
     applyTheme(next)
   }
 
-  if (!theme) return null // SSR-safe
-
   return (
-    <button onClick={toggleTheme}>
-      {theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}
-    </button>
+    <div onClick={toggleTheme}>
+      {theme === 'light' ? <FaRegSun className="icon" /> : <FaRegMoon className="icon" />}
+    </div>
   )
 }

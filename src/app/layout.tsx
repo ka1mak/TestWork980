@@ -1,5 +1,10 @@
+import { golos } from '@/assests/fonts'
+import { Header } from '@/components/structure/Header/Header'
+
 import type { Metadata } from 'next'
-import './globals.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@/assests/styles/globals.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,7 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    // Применён suppressHydrationWarning, чтобы скрыть предупреждение о гидрации из-за установки темы. В рамках текущего проекта без styled-components и сложного UI такой подход считается допустимым и не вызывает побочных эффектов
+    // <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -34,7 +41,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={''}>
+      <body className={golos.variable}>
+        <Header />
         {children}
       </body>
     </html>
