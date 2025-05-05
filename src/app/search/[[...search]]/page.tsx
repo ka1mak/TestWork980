@@ -1,6 +1,21 @@
+import { Metadata } from 'next'
+
 import { getCurrentWeather, getHourlyWeather } from '@/actions/weather.api'
 import { HourlyWeather } from '@/components/elements/HourlyWeather/HourlyWeather'
 import { WeatherCard } from '@/components/elements/WeatherCard/WeatherCard'
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}): Promise<Metadata> {
+  const { name } = await searchParams
+
+  return {
+    title: `Weather forecast for ${name}`,
+    description: `Check current and hourly weather for ${name}.`,
+  }
+}
 
 type SearchParams = Promise<{
   name: string
