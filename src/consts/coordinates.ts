@@ -1,4 +1,5 @@
+// London Geolocation
 export const coordinates = {
-  lat: 40.513996,
-  lon: 72.816101,
+  lat: 51.509865,
+  lon: -0.118092,
 }
