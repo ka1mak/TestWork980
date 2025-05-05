@@ -15,8 +15,11 @@ class HttpFetcher {
     return `${endpoint}?${searchParams.toString()}`
   }
 
-  async fetchData<ResponseType>(url: string): Promise<ResponseType> {
-    const response = await fetch(url)
+  async fetchData<ResponseType>(
+    url: string,
+    options?: RequestInit & { next?: { revalidate?: number } },
+  ): Promise<ResponseType> {
+    const response = await fetch(url, options)
 
     if (!response.ok) {
       const errorText = await response.text()

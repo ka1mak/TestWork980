@@ -55,16 +55,19 @@ export const useFavoritesStore = create<FavoritesStoreTypes>((set, get) => ({
         item.coordinates.lon === city.coordinates.lon,
     )
 
-    const updated = isExists
-      ? list.filter(
-        (item) =>
-          item.coordinates.lat !== city.coordinates.lat ||
-            item.coordinates.lon !== city.coordinates.lon,
+    if (isExists) {
+      const updated = list.filter(
+        (item) => item.coordinates.lat !== city.coordinates.lat && item.coordinates.lon !== city.coordinates.lon,
       )
-      : [...list, city]
 
-    LocalStorage.set('favorites', updated)
-    set({ favorites: updated })
+      LocalStorage.set('favorites', updated)
+      set({ favorites: updated })
+    } else {
+      const updated = [...list, city]
+
+      LocalStorage.set('favorites', updated)
+      set({ favorites: updated })
+    }
   },
 
   getFavorites: () => set({ favorites: LocalStorage.get<IFavoriteCity[]>('favorites') || [] }),

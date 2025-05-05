@@ -1,10 +1,9 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaSearch, FaRegHeart } from 'react-icons/fa'
+import { FaRegHeart } from 'react-icons/fa'
 
 import { SearchInput } from '@/components/elements/SearchInput/SearchInput'
-import { ThemeSwitcher } from '@/components/ui/ThemeSwitcher/ThemeSwitcher'
 
 import cls from './Header.module.scss'
 
@@ -24,13 +23,9 @@ export const Header = () => {
         </div>
 
         <div className="d-flex align-items-center gap-3">
-          {/* <div className={clsx(cls.search, 'input-group')}>
-            <span className={clsx(cls.formIcon, 'input-group-text')}><FaSearch /></span>
-            <input type="text" className={clsx(cls.formControl, 'form-control')} placeholder="Search City..." />
-          </div> */}
           <SearchInput />
 
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
 
           <Link href="/favorites" className={cls.iconButton}>
             <FaRegHeart className="icon" />

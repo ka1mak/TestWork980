@@ -10,7 +10,7 @@ export const getCurrentWeather = (coordinates: Coordinates): Promise<WeatherType
     { ...coordinates },
   )
 
-  return fetcher.fetchData<WeatherTypes.Root>(url)
+  return fetcher.fetchData<WeatherTypes.Root>(url, { next: { revalidate: 3600 } })
 }
 
 export const getHourlyWeather = (coordinates: Coordinates): Promise<HourlyTypes.Root> => {
@@ -19,7 +19,7 @@ export const getHourlyWeather = (coordinates: Coordinates): Promise<HourlyTypes.
     { ...coordinates },
   )
 
-  return fetcher.fetchData(url)
+  return fetcher.fetchData<HourlyTypes.Root>(url, { next: { revalidate: 3600 } })
 }
 
 export const getWeatherByName = (name: string): Promise<SearchTypes.Response> => {
@@ -28,5 +28,5 @@ export const getWeatherByName = (name: string): Promise<SearchTypes.Response> =>
     limit: 5,
   })
 
-  return fetcher.fetchData(url)
+  return fetcher.fetchData<SearchTypes.Response>(url)
 }

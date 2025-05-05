@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react'
 
 import { Coordinates } from '@/types/coordinates'
 
+// Хук предназначен для получения координат пользователя через navigator.geolocation
+// Планировалось использовать его для автоматического определения текущей погоды
+// но из-за приоритета SSR (серверного рендеринга) хук не был применён
+// так как доступ к navigator.geolocation возможен только на клиенте
+
 export const useLocation = () => {
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null)
   const [errorMessage, setErrorMessage] = useState<null | string>(null)

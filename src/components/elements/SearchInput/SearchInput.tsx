@@ -99,7 +99,7 @@ export const SearchInput = () => {
               {data.map((city) => (
                 <Link
                   key={`${city.lat}-${city.lon}`}
-                  href={`/${city.name}?name=${city.name}&lat=${city.lat}&lon=${city.lon}`}
+                  href={`/search/${city.name}?name=${city.name}&lat=${city.lat}&lon=${city.lon}`}
                   onClick={handleClose}
                 >
                   <ListGroupItem
