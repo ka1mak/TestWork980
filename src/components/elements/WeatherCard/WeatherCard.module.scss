@@ -1,0 +1,23 @@
+.card {
+  .card_list_item {
+    &:not(:first-child) {
+      border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+
+      span {
+        font-size: 14px;
+        padding: 4px 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .br {
+    border-top: 1px solid #dee2e6;
+  }
+}
+
+.list_item {
+  background: transparent;
+  color: inherit;
+}

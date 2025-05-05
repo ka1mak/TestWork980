@@ -29,12 +29,6 @@ a {
   height: var(--icon-size);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 @media (min-width: 768px) {
   :root {
     --icon-size: 24px;

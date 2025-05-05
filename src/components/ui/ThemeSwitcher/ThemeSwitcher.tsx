@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { FaRegMoon, FaRegSun } from 'react-icons/fa'
 
-import { applyTheme, Theme } from '@/lib/theme'
+import { applyTheme, Theme } from '@/tools/applyTheme'
 
 export const ThemeSwitcher = () => {
   const [theme, setTheme] = useState<Theme | null>(null)

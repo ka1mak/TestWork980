@@ -1,11 +1,11 @@
-const API_CONFIGS = {
+export const API_CONFIGS = {
   WEATHER_URL: process.env.NEXT_PUBLIC_WEATHER_API,
   API_KEY: process.env.NEXT_PUBLIC_API_KEY,
   GEO_URL: process.env.NEXT_PUBLIC_GEO_API,
 }
 
 class HttpFetcher {
-  async createEndPoint(endpoint: string, params: Record<string, string | number>): Promise<string> {
+  createEndPoint(endpoint: string, params: Record<string, string | number>): string {
     const searchParams = new URLSearchParams({
       ...params,
       units: 'metric',
@@ -15,7 +15,7 @@ class HttpFetcher {
     return `${endpoint}?${searchParams.toString()}`
   }
 
-  async fetchData<Response>(url: string): Promise<Response> {
+  async fetchData<ResponseType>(url: string): Promise<ResponseType> {
     const response = await fetch(url)
 
     if (!response.ok) {
@@ -24,7 +24,7 @@ class HttpFetcher {
       throw new Error(`HTTP Error ${response.status}: ${response.statusText}. ${errorText}`)
     }
 
-    return response.json() as Promise<Response>
+    return response.json() as Promise<ResponseType>
   }
 }
 

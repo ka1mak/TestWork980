@@ -1,0 +1,52 @@
+.root :global(.btn) {
+  width: 220px;
+  text-align: left;
+  cursor: text !important;
+}
+
+.list_item {
+  cursor: pointer;
+}
+
+.search {
+  flex: 1;
+
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
+
+  .formIcon {
+    background-color: transparent;
+    color: var(--foreground);
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .formControl {
+    background-color: transparent;
+    color: var(--foreground);
+
+    &::placeholder {
+      color: var(--foreground);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .input-group-text {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+  }
+
+  .input-group {
+    position: relative;
+  }
+}
